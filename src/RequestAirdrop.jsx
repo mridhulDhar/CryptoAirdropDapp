@@ -5,10 +5,10 @@ export function RequestAirdrop(){
     const wallet = useWallet();
     const { connection } = useConnection();
 
-    function requestAirdrop(){
+    async function requestAirdrop(){
         const publicKey = wallet.publicKey;
         const amount = document.getElementById("amount").value;
-        connection.requestAirdrop(publicKey, amount * LAMPORTS_PER_SOL);
+        await connection.requestAirdrop(publicKey, amount * LAMPORTS_PER_SOL);
     }
 
     return <div>
